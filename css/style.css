@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	color: #1a1a1a;
+	background: #33334d;
+	display: grid;
+	place-items: center;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.calculator {
+	width: 320px;
+	display: grid;
+	/* grid-template-rows: repeat(5, 1fr);
+   grid-template-columns: repeat(4, 1fr); */
+	grid-template: 2fr repeat(6, 1fr) / repeat(4, 1.1fr);
+	/* row-gap: 10px;
+   column-gap: 20px;
+   gap: 10px 20px; */
+	background: #f2f2f2;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.button {
+	place-self: stretch;
+	font-size: 20px;
+	font-weight: 500;
+	border: 1px solid #a6a6a6;
+	padding: 20px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.15s linear;
+}
+.button:hover {
+	background: rgba(0, 0, 0, 0.3);
+	transition: all 0.15s linear;
+}
+.button::selection {
+	display: none;
+}
+.light {
+	background: #f2f2f2;
+}
+.dark {
+	background: #d9d9d9;
+}
+.orange {
+	grid-row: 6 / 8;
+	grid-column: 4 / 5;
+	background: #ff751a;
+	border-width: 1px 0 0 1px;
+}
+.orange:hover {
+	background: #e65c00;
+}
+
+.display {
+	grid-column: 1 / 5;
+	place-self: center end;
+}
+.previous {
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	padding-right: 20px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
+.result {
+	font-size: 30px;
+	font-weight: 700;
+	padding: 0 20px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.backspace {
+	font-size: 26px;
+	color: #ff6600;
+	background: white;
+	transition: color 0.15s linear;
+}
+.backspace:hover {
+	background: white;
+}
+.backspace:hover i {
+	color: red;
+	transition: color 0.15s linear;
+}
+
+.light i {
+	font-size: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
