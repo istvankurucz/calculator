@@ -47,22 +47,26 @@ $(document).ready(function () {
 		operator = "";
 	}
 
+	function reset() {
+		num1 = num2 = "";
+		previous.text("");
+		display.text("0");
+	}
+
 	// Here can be added the numbers
 	$(".light").click(function () {
 		if (operator) {
-			if ($(this).html() === "Thanks") alert("Thanks for using my calculator.");
-			else if ($(this).html() === '<i class="fas fa-circle"></i>') {
+			if ($(this).html() === '<i class="fas fa-circle"></i>') {
 				if (num2.indexOf(".") === -1) num2 += ".";
 				else console.log("You can't add more points!");
-			} else num2 += $(this).html();
+			} else if ($(this).html() !== "C") num2 += $(this).html();
 
 			display.text(num2);
 		} else {
-			if ($(this).html() === "Thanks") alert("Thanks for using my calculator.");
-			else if ($(this).html() === '<i class="fas fa-circle"></i>') {
+			if ($(this).html() === '<i class="fas fa-circle"></i>') {
 				if (num1.indexOf(".") === -1) num1 += ".";
 				else console.log("You can't add more points!");
-			} else num1 += $(this).html();
+			} else if ($(this).html() !== "C") num1 += $(this).html();
 
 			display.text(num1);
 		}
@@ -115,11 +119,8 @@ $(document).ready(function () {
 		if (display.text() === "") display.text("0");
 	});
 	// It totally resets the calculator
-	deleteLast.dblclick(function () {
-		num1 = num2 = "";
-		previous.text("");
-		display.text("0");
-	});
+	deleteLast.dblclick(reset);
+	$(".light.clear").click(reset);
 
 	// If there's an operator it solves
 	$(".orange").click(solveOperation);
